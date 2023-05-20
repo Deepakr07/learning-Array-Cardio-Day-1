@@ -53,13 +53,16 @@
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
     const sortedInv = inventors.sort(function(person1,person2){
-      person1.year < person2.year ?  1:  -1;
+      return person1.year < person2.year ?  1:  -1;
     })
     console.table(sortedInv);
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
-
+      const livedTogether = inventors.reduce(function(total,inventor){
+        return total+(inventor.passed-inventor.year);
+      }, 0);
+      console.log(livedTogether);
     // 5. Sort the inventors by years lived
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
